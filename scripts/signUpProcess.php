@@ -1,6 +1,6 @@
 <?php
 
-require_once 'db.php';
+include_once 'db.php';
 
 // Function to sanitize input data
 function sanitizeInput($data)
