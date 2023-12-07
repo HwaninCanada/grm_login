@@ -1,8 +1,5 @@
 <?php
 
-// Load environment variables
-require_once '/opt/bitnami/apache/vendor/autoload.php';
-
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
