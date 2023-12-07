@@ -15,6 +15,17 @@ try {
     $query = $pdo->query("SELECT * FROM users");
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
+    if(!empty($result)){
+
+      if($result[0]["userId"] == "adminHwan") {
+        print("Found it")
+      }
+      else{
+        print("can't find it")
+      }
+
+    }
+
     // Perform actions based on user input
     // For example, you can check if the user with the given ID and password exists in the result set
 
