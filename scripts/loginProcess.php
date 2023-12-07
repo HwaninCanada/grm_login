@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $hashedPassword = $row['password'];
 
-        if (password_verify($rawPassword . $_ENV['PASSWORD_SALT'], $hashedPassword)) {
+        if (password_verify($rawPassword . "akaSaltz", $hashedPassword)) {
             // Password is correct, perform login actions
             echo "<script>alert('Login successful!');</script>";
         } else {
