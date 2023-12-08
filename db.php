@@ -4,7 +4,7 @@
 
 try{
 
-    require_once '/home/bitnami/apache/vendor/autoload.php';
+    require_once '/home/bitnami/vendor/autoload.php';
 
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->load();
