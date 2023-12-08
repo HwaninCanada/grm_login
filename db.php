@@ -1,7 +1,18 @@
 <?php
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+// Load environment variables
+
+try{
+
+    require_once '/home/bitnami/apache/vendor/autoload.php';
+
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+
+}catch(Exception $e)
+{
+    $s = $e->getMessage() . ' (Error Code:' . $e->getCode() . ')';
+}
 
 // Get database credentials from environment variables
 $db_host = $_ENV['DB_HOST'];
