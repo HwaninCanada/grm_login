@@ -5,7 +5,14 @@ include_once include_once 'db.php';
 //Getting data from DB
 $currentPageNumber = 1;
 $perPage = 10;
-$offset = ($pageNumber - 1) * $perPage;
+
+if($currentPageNumber == 1){
+  $offset = 0;
+}
+else if($currentPageNumber < 1){
+  $offset = ($pageNumber - 1) * $perPage;
+}
+
 
 $sql = "SELECT title, posted_at, posted_by FROM posts ORDER BY posted_at DESC LIMIT $perPage OFFSET $offset";
 
