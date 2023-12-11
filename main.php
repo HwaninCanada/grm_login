@@ -90,7 +90,7 @@ $conn->close();
     <?php 
     if(!empty($post['image'])){
       $imageData = base64_encode($post['image']);
-      $imageSrc = "data:image/jpeg;base64," . $imageData;
+      $imageSrc = "data:image/bmp;base64," . $imageData;
       
       echo "<div class='flex items-center mb-2'>
       <img src=".$imageSrc." alt='Post Image' class='w-16 h-16 object-cover rounded-full mr-2;>
