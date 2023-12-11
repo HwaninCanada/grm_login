@@ -14,7 +14,7 @@ else if($currentPageNumber < 1){
 }
 
 
-$sql = "SELECT title, posted_at, posted_by FROM posts ORDER BY posted_at DESC LIMIT $perPage OFFSET $offset";
+$sql = "SELECT * FROM posts ORDER BY posted_at DESC LIMIT $perPage OFFSET $offset";
 
 $result = $conn->query($sql);
 
@@ -28,6 +28,12 @@ if ($result->num_rows > 0) {
 
 // Close the database connection
 $conn->close();
+
+//$posts = [
+//    ['title' => 'Sample Post Title 1', 'content' => 'This is the content for post 1.', 'posted_at' => '2023-12-07 12:34:56', 'posted_by' => 'John Doe', 'image' => 'image1.jpg'],
+//    ['title' => 'Sample Post Title 2', 'content' => 'This is the content for post 2.', 'posted_at' => '2023-12-08 10:45:30', 'posted_by' => 'Jane Doe', 'image' => 'image2.jpg'],
+//    // Add more posts as needed
+//];
 
 ?>
 
@@ -81,9 +87,17 @@ $conn->close();
     <div class="mb-4"><?php echo $post['content']; ?></div>
 
     <!-- Image Row -->
-    <div class="flex items-center mb-2">
-      <img src="<?php echo $post['image']; ?>" alt="Post Image" class="w-16 h-16 object-cover rounded-full mr-2">
-    </div>
+    <?php 
+    if(!empty($post['image'])){
+      $imageData = base64_encode($post['image']);
+      $imageSrc = "data:image/jpeg;base64," . $imageData;
+      
+      echo "<div class='flex items-center mb-2'>
+      <img src=".$imageSrc." alt='Post Image' class='w-16 h-16 object-cover rounded-full mr-2;>
+      </div>";
+    }
+
+    ?>
 
     <!-- Actions Row -->
     <div class="flex">
