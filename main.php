@@ -29,12 +29,6 @@ if ($result->num_rows > 0) {
 // Close the database connection
 $conn->close();
 
-$posts = [
-    ['title' => 'Sample Post Title 1', 'content' => 'This is the content for post 1.', 'posted_at' => '2023-12-07 12:34:56', 'posted_by' => 'John Doe', 'image' => 'image1.jpg'],
-    ['title' => 'Sample Post Title 2', 'content' => 'This is the content for post 2.', 'posted_at' => '2023-12-08 10:45:30', 'posted_by' => 'Jane Doe', 'image' => 'image2.jpg'],
-    // Add more posts as needed
-];
-
 ?>
 
 <!DOCTYPE html>
